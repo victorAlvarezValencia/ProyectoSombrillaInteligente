@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot
+  name="robotmilagro">
+  <link
+    name="base2_Link">
+    <inertial>
+      <origin
+        xyz="0.00530265169310419 0.00528029914101924 0.0513462352345183"
+        rpy="0 0 0" />
+      <mass
+        value="37.3619805208222" />
+      <inertia
+        ixx="1.07878719190163"
+        ixy="0.0421503007964398"
+        ixz="0.00134509247170474"
+        iyy="1.07844693370143"
+        iyz="0.00131074568973874"
+        izz="2.0532044687573" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/base_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.458 0.6 0.92564 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/base_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link1">
+    <inertial>
+      <origin
+        xyz="-0.00150165357461152 -0.00252217720068532 -0.728144343309596"
+        rpy="0 0 0" />
+      <mass
+        value="68.2835579500472" />
+      <inertia
+        ixx="22.0411080887108"
+        ixy="-0.00744416311395271"
+        ixz="-0.109354248005661"
+        iyy="22.0362256160777"
+        iyz="-0.182138134559127"
+        izz="0.69058697507177" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Tronco.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Tronco.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="continuous">
+    <origin
+      xyz="0 0 0.115"
+      rpy="3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="base2_Link" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 0 -1" />
+    <dynamics damping="10.0" friction="1.0"/>
+  </joint>
+  <link
+    name="Link2">
+    <inertial>
+      <origin
+        xyz="-0.10960215630603 -0.162603141614655 -0.0359086013656229"
+        rpy="0 0 0" />
+      <mass
+        value="3.56831911575463" />
+      <inertia
+        ixx="0.0934857213432759"
+        ixy="-0.0594303944632466"
+        ixz="0.00240172284703"
+        iyy="0.0453732762018966"
+        iyz="0.00356378352311933"
+        izz="0.134285524788038" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Brazo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+      	<mesh
+          filename="package://robot_milagro/meshes/Link_Brazo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="-0.0228488334918947 -0.0973546650554546 -1.807"
+      rpy="1.5707963267949 -0.806517129584187 -1.80132098574088" />
+    <parent
+      link="Link1" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit effort ="10000000.0" lower="-1.35" upper="1.77" velocity="10000"/>
+    <dynamics damping="10.0" friction="1.0"/>
+  </joint>
+  <link
+    name="Link3">
+    <inertial>
+      <origin
+        xyz="-0.00964072600716015 0.00175734371701308 -0.0223572981519106"
+        rpy="0 0 0" />
+      <mass
+        value="0.444659484764021" />
+      <inertia
+        ixx="0.000336427550419971"
+        ixy="-1.24122241005367E-10"
+        ixz="3.85623975649894E-12"
+        iyy="0.000343541608011627"
+        iyz="1.8439400313236E-06"
+        izz="0.000462240088009121" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Union.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Union.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="revolute">
+    <origin
+      xyz="-0.27121 -0.42005 0"
+      rpy="-3.1416 0 -0.8082" />
+    <parent
+      link="Link2" />
+    <child
+      link="Link3" />
+    <axis
+      xyz="0 0 1" />
+    <limit effort ="10000000.0" lower="-1.75" upper="1.38" velocity="10000"/>
+    <dynamics damping="10.0" friction="1.0"/>
+  </joint>
+  <link
+    name="Link4">
+    <inertial>
+      <origin
+        xyz="0.0192054951866207 -0.0663350240305418 -0.487433962179927"
+        rpy="0 0 0" />
+      <mass
+        value="0.176714586764426" />
+      <inertia
+        ixx="0.0146977411293204"
+        ixy="0.000103264855187528"
+        ixz="0.000666496037835187"
+        iyy="0.0143842623599113"
+        iyz="-0.00222308674393347"
+        izz="0.0003803678336781" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Palo.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Palo.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint4"
+    type="fixed">
+    <origin
+      xyz="4.2164E-05 0.025 -0.0175"
+      rpy="1.6015 -1.2127 0.1312" />
+    <parent
+      link="Link3" />
+    <child
+      link="Link4" />
+    <axis
+      xyz="0.045855 -0.15295 -0.98717" />
+    <dynamics damping="10.0" friction="1.0"/>
+  </joint>
+  <link
+    name="Link5">
+    <inertial>
+      <origin
+        xyz="0.0174999997388959 0.00730798787720233 -0.627018407775032"
+        rpy="0 0 0" />
+      <mass
+        value="5.37132751326918" />
+      <inertia
+        ixx="0.338769991177507"
+        ixy="-7.35766031434437E-11"
+        ixz="-4.14342968030508E-11"
+        iyy="0.33876999082987"
+        iyz="-1.40698678565126E-10"
+        izz="0.443057941792724" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Sombrilla.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_milagro/meshes/Link_Sombrilla.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint5"
+    type="fixed">
+    <origin
+      xyz="-0.016949 0.0056692 0"
+      rpy="1.5708 1.5708 0" />
+    <parent
+      link="Link3" />
+    <child
+      link="Link5" />
+    <axis
+      xyz="0 0 0" />
+    <dynamics damping="10.0" friction="1.0"/>
+  </joint>
+  
+  <ros2_control name="GazeboSystem" type="system">
+    <hardware>
+      <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+    </hardware>
+    
+    <joint name="joint1">
+      <command_interface name="position">
+        <param name="min">-10</param>
+        <param name="max">10</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint> >
+    <joint name="joint2">
+      <command_interface name="position">
+        <param name="min">1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint> >
+
+    <joint name="joint3">
+      <command_interface name="position">
+        <param name="min">1</param>
+        <param name="max">1</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint> >
+  </ros2_control>
+  
+  <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+         <parameters>/home/victor/WorkFinal/src/robot_milagro/config/emisor.yaml</parameters>
+      </plugin>
+    </gazebo>
+
+
+
+<gazebo reference="bas2_Link">
+<material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="Link1">
+<material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="Link2">
+<material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="Link3">
+<material>Gazebo/Orange</material>
+</gazebo>
+<gazebo reference="Link4">
+<material>Gazebo/White</material>
+</gazebo>
+<gazebo reference="Link5">
+<material>Gazebo/White</material>
+</gazebo>
+
+</robot>
